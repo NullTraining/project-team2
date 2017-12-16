@@ -1,3 +1,6 @@
+#PhpStorm procjet files
+.idea
+
 
 ###> symfony/framework-bundle ###
 .env
