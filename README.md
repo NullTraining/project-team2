@@ -1,3 +1,37 @@
+# Lost and found aplikacija:
+
+Use case: našao sam/tražim ključeve/rukavice/novčanik
+
+## Featurei:
+
+Svi korisnici mogu vidjeti Google maps pinove za predmete nađeno/izgubljeno
+
+Korisnik može unijeti dvije forme:
+
+1. Izgubio sam X
+Zadnja poznata lokacija u okolici *označiti map area*
+Kratki opis
+
+Također može unijeti formu:
+
+2. Našao sam X
+Na lokaciji *koordinate*
+Slika
+Kratki opis gdje je pronađeno i/ili kojim okolnostima ("Ključevi pronađeni u blatu pored adrese X")
+
+**Problem**: handlanje potencijalnih lažnih prijava
+Različiti tipovi predmeta mogu imati različite načine handlanja pronalaska
+
+1) novčanik - ako ima osobnih podataka unutra, site može po prijavi 'predmet pronađen' pokušati pronaći kontakt podatke od osobe koja je izgubila i poslati automatski mail
+2) predmeti veće intrinzične vrijednosti tipa mobitel, sat - sakriti sliku i tražiti opširniji opis?
+3) ključevi - slika uključena, u pravilu ključevi imaju vrijednost samo za osobu koja zna kojim bravama pripadaju, pa slika nije problem
+4) novac - nema pametnog načina, možda ne dopustiti prijavu
+
+Email notifikacija kada je na lokaciji blizu vaše tražene pronađen predmet vašeg tipa
+Email notifikacija kada netko traži predmet poput onoga koji ste pronašli u nekoj razumnoj blizini
+Odjeljivanje setova traženih/nađenih predmeta po naselju
+Interni inbox u aplikaciji gdje se može dogovoriti primopredaja, email notifikacija na dospijeće poruka u inbox (što je moguće isključiti).
+
 # project-team2
 Team 2 project
 
