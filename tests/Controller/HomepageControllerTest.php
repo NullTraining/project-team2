@@ -3,19 +3,21 @@
 namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 
 class HomepageControllerTest extends WebTestCase
 {
-
-    public function testHomepage()
+    public function testHomepageWhenNotLoggedIn()
     {
         $url = '/';
 
         $client = self::createClient();
 
         $client->request('GET', $url);
+        $crawler = $client->getCrawler();
 
-        self::assertEquals('{"id":1,"name":"John"}', $client->getResponse()->getContent());
+        $this->assertGreaterThan(
+            0,
+            $crawler->filter('html:contains("Welcome!")')->count()
+        );
     }
 }
