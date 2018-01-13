@@ -3,10 +3,31 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="/css/style.css">
+        {% endblock %}
     </head>
     <body>
+    <div class="container">
+        {% block header %}
+            <div class="row navbar-header">
+                <div class="col-3 offset-9">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <a class="btn btn-primary" href="/logout">Logout</a>
+                    {% else %}
+                        <a class="btn btn-primary" href="/login">Login</a>
+                    {% endif %}
+                    <a class="btn btn-primary" href="/register">Register</a>
+                </div>
+            </div>
+        {% endblock %}
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+        {% block javascripts %}
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+            <script src="/js/app.js"></script>
+        {% endblock %}
+    </div>
     </body>
 </html>
