@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome!{% endblock %}
+
+{% block body %}
+        <div class="row">
+            <div class="col">
+                Welcome{% if is_granted('IS_AUTHENTICATED_FULLY') %}, {{ app.user|capitalize }}{% endif %}!
+            </div>
+        </div>
+{% endblock %}
