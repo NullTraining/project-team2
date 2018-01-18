@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,6 +23,19 @@ class Category
      * @ORM\Column(type="string", length=120)
      */
     private $title;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Item", mappedBy="category")
+     */
+    private $items;
+
+    /**
+     * Category constructor.
+     */
+    public function __construct()
+    {
+        $this->items = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -55,4 +69,11 @@ class Category
         $this->title = $title;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getItems()
+    {
+        return $this->items;
+    }
 }
