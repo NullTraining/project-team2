@@ -26,3 +26,7 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+twig:
+    globals:
+        google_maps_api_key: "%env(GMAPS_API_KEY)%"
