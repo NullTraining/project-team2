@@ -72,7 +72,7 @@ class Point
     }
 
     /**
-     * @return mixed
+     * @return Location
      */
     public function getLocation()
     {
@@ -80,7 +80,7 @@ class Point
     }
 
     /**
-     * @param mixed $location
+     * @param Location $location
      */
     public function setLocation($location)
     {
