@@ -8,6 +8,27 @@
                 Welcome{% if is_granted('IS_AUTHENTICATED_FULLY') %}, {{ app.user|capitalize }}{% endif %}!
             </div>
         </div>
+        <div class="row">
+        </div>
+        <div class="row">
+            <hr/>
+            <div id="data-container">
+                {% for location_id, point_set  in point_sets %}
+                    {% for point in point_set %}
+                        <div class="points"
+                             id="point-{{ loop.parent.loop.index }}-{{ loop.index }}"
+                             data-pointset="{{ loop.parent.loop.index }}"
+                             data-long="{{ point.longitude }}"
+                             data-lat="{{ point.latitude }}"
+                             data-location-id="{{ location_id }}"
+                        ></div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            <div class="col-10 offset-2">
+                <div id="map" style="position: relative; overflow: hidden;"></div>
+            </div>
+        </div>
 {% endblock %}
 
 {% block javascripts %}
