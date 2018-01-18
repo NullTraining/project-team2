@@ -27,6 +27,11 @@ class Point
     private $longitude;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Location", inversedBy="points")
+     */
+    private $location;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -64,5 +69,21 @@ class Point
     public function setLongitude($longitude)
     {
         $this->longitude = $longitude;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * @param mixed $location
+     */
+    public function setLocation($location)
+    {
+        $this->location = $location;
     }
 }
