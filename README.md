@@ -68,9 +68,9 @@ Run `composer install`
 ## Step 7
 Run migration with command `./bin/console doctrine:migrations:migrate`.
 If you run into trouble try
-`./bin/console doctrine:schema:drop`
+`./bin/console doctrine:database:drop --force`
 then
-`./bin/console doctrine:schema:create`
+`./bin/console doctrine:database:create`
 then run migration again.
 
 
