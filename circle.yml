@@ -9,6 +9,7 @@ jobs:
           - APP_DEBUG=1
           - APP_SECRET=123
           - DATABASE_URL=mysql://bob:n0p455@127.0.0.1:3306/bob_test
+          - GMAPS_API_KEY=AIzaSyD0Bt1BuVHedGQ8I_vK1L9PpCaD1fB7O-c
       - image: mysql:5.7
         environment:
           - MYSQL_ROOT_PASSWORD=n0p455
