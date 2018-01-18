@@ -57,3 +57,24 @@ Add to hosts file (on your laptop) (Linux: /etc/hosts , Mac: /private/etc/hosts,
 
 ## Step 4
 Open `https://www.bob.loc`. It should complain about broken certificate, just allow it. If you see 'Ready to rumble' in your browser, Vagrant setup works!
+
+## Step 5
+Copy `.env.dist` to `.env`.
+If you don't use Vagrant enter your own database credentials
+
+## Step 6
+Run `composer install`
+
+## Step 7
+Run migration with command `./bin/console doctrine:migrations:migrate`.
+If you run into trouble try
+`./bin/console doctrine:schema:drop`
+then
+`./bin/console doctrine:schema:create`
+then run migration again.
+
+
+## Step 8
+Run `./bin/console doctrine:fixtures:load`
+
+
