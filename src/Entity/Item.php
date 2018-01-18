@@ -5,13 +5,17 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\ManyToOne;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ItemRepository")
  */
 class Item
 {
+    const STATUS_FOUND = 0;
+    const STATUS_LOST = 1;
+    const STATUS_FOUND_RETURNED = 2;
+    const STATUS_LOST_RETURNED = 3;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -43,6 +47,11 @@ class Item
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="items")
      */
     private $category;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $status;
 
     /**
      * @return int
@@ -138,6 +147,22 @@ class Item
     public function setCategory($category)
     {
         $this->category = $category;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
     }
 
 }
