@@ -24,19 +24,20 @@ function initMap() {
                 lng: longitude
             });
 
-            $('.points').each(function(index, point){
+            $('.points').each(function (index, point) {
                 var pointPosition = $(point).data();
 
                 map.addMarker({
                     lat: pointPosition.lat,
                     lng: pointPosition.long,
                     title: 'Some Title',
-                    click: function(e){
-                        if(console.log)
+                    click: function (e) {
+                        if (console.log)
                             console.log(e);
                         alert('You clicked in this marker');
                     }
                 });
             })
+        }
     });
 }
