@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\ManyToOne;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ItemRepository")
@@ -33,11 +34,15 @@ class Item
      */
     private $location;
 
-
     /**
      * @ORM\Column(type="text")
      */
     private $picture;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="items")
+     */
+    private $category;
 
     /**
      * @return int
@@ -117,6 +122,22 @@ class Item
     public function setPicture($picture): void
     {
         $this->picture = $picture;
+    }
+
+    /**
+     * @return Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param Category $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
     }
 
 }
