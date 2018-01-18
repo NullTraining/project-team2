@@ -18,7 +18,7 @@ class Location
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Point", mappedBy="Location")
+     * @ORM\OneToMany(targetEntity="Point", mappedBy="location")
      */
     private $points;
 
