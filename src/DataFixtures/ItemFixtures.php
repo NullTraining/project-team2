@@ -19,6 +19,7 @@ class ItemFixtures extends Fixture
         $wallet->setLocation('Heinzelova 23, 10000 Zagreb');
         $wallet->setPicture('https://cdn.xl.thumbs.canstockphoto.com/cash-and-credit-cards-in-old-wallet-stock-photo_csp5218544.jpg');
         $wallet->setCategory($valuables);
+        $wallet->setStatus(Item::STATUS_FOUND);
 
         $manager->persist($valuables);
         $manager->persist($wallet);
@@ -32,6 +33,7 @@ class ItemFixtures extends Fixture
         $scarf->setLocation('Savska 46, 10000 Zagreb');
         $scarf->setPicture('https://image.shutterstock.com/z/stock-photo-small-wooden-house-in-a-warming-scarf-comfortable-live-at-any-seasons-499530313.jpg');
         $scarf->setCategory($clothing);
+        $scarf->setStatus(Item::STATUS_LOST);
 
         $manager->persist($clothing);
         $manager->persist($scarf);
@@ -45,6 +47,7 @@ class ItemFixtures extends Fixture
         $keychain->setLocation('Vukovarska 12, 10000 Zagreb');
         $keychain->setPicture('https://thumbs.dreamstime.com/b/keys-keychain-four-silver-key-chain-isolated-white-33717257.jpg');
         $keychain->setCategory($keys);
+        $keychain->setStatus(Item::STATUS_FOUND_RETURNED);
 
         $manager->persist($keys);
         $manager->persist($keychain);
