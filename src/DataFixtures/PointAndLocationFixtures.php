@@ -55,6 +55,8 @@ class PointAndLocationFixtures extends Fixture
         $this->addReference('2-point', $point2);
         $this->addReference('3-point', $point3);
         $this->addReference('4-point', $point4);
+        $this->addReference('location-1', $location1);
+        $this->addReference('location-2', $location2);
 
         $manager->flush();
     }
