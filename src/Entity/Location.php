@@ -43,11 +43,17 @@ class Location
     private $city;
 
     /**
+     * @ORM\OneToMany(targetEntity="Item", mappedBy="location")
+     */
+    private $items;
+
+    /**
      * Location constructor.
      */
     public function __construct()
     {
         $this->points = new ArrayCollection();
+        $this->items = new ArrayCollection();
     }
 
     /**
@@ -136,5 +142,13 @@ class Location
     public function setCity($city)
     {
         $this->city = $city;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getItems()
+    {
+        return $this->items;
     }
 }
