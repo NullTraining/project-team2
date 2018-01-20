@@ -62,14 +62,6 @@ class Item
     }
 
     /**
-     * @param int $id
-     */
-    public function setId(int $id)
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return string
      */
     public function getTitle(): ?string
@@ -144,7 +136,7 @@ class Item
     /**
      * @param Category $category
      */
-    public function setCategory($category)
+    public function setCategory(Category $category)
     {
         $this->category = $category;
     }
