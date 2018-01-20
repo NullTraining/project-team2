@@ -34,7 +34,7 @@ class Item
     private $description;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\OneToOne(targetEntity="Location", inversedBy="item")
      */
     private $location;
 
@@ -94,7 +94,7 @@ class Item
     }
 
     /**
-     * @return string
+     * @return Location
      */
     public function getLocation()
     {
@@ -102,9 +102,9 @@ class Item
     }
 
     /**
-     * @param string $location
+     * @param Location $location
      */
-    public function setLocation($location): void
+    public function setLocation(Location $location): void
     {
         $this->location = $location;
     }

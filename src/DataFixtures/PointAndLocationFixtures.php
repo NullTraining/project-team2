@@ -39,10 +39,19 @@ class PointAndLocationFixtures extends Fixture
         $location2->setStreetNumber('123');
         $location2->setPostBox('10000');
         $location2->setCity('Zagreb');
-        $location2->setPoints([$point2, $point3, $point4]);
+        $location2->setPoints([$point2, $point3]);
         $point2->setLocation($location2);
         $point3->setLocation($location2);
-        $point4->setLocation($location2);
+
+        $location3 = new Location();
+        $location3->setStreet('Novi zagreb');
+        $location3->setStreetNumber('55');
+        $location3->setPostBox('10000');
+        $location3->setCity('Zagreb');
+        $location3->setPoints([$point4]);
+        $point4->setLocation($location3);
+
+
 
         $manager->persist($point1);
         $manager->persist($point2);
@@ -50,11 +59,15 @@ class PointAndLocationFixtures extends Fixture
         $manager->persist($point4);
         $manager->persist($location1);
         $manager->persist($location2);
+        $manager->persist($location3);
 
         $this->addReference('1-point', $point1);
         $this->addReference('2-point', $point2);
         $this->addReference('3-point', $point3);
         $this->addReference('4-point', $point4);
+        $this->addReference('location-1', $location1);
+        $this->addReference('location-2', $location2);
+        $this->addReference('location-3', $location3);
 
         $manager->flush();
     }
