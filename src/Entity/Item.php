@@ -34,7 +34,7 @@ class Item
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Location", inversedBy="items")
+     * @ORM\OneToOne(targetEntity="Location", inversedBy="item")
      */
     private $location;
 

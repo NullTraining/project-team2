@@ -43,9 +43,9 @@ class Location
     private $city;
 
     /**
-     * @ORM\OneToMany(targetEntity="Item", mappedBy="location")
+     * @ORM\OneToOne(targetEntity="Item", mappedBy="location")
      */
-    private $items;
+    private $item;
 
     /**
      * Location constructor.
@@ -147,8 +147,8 @@ class Location
     /**
      * @return mixed
      */
-    public function getItems()
+    public function getItem()
     {
-        return $this->items;
+        return $this->item;
     }
 }
