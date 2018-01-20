@@ -25,7 +25,7 @@ class ItemFixtures extends Fixture implements DependentFixtureInterface
         $scarf = new Item();
         $scarf->setTitle("Kid's scarf");
         $scarf->setDescription('Ochre, woolen');
-        $scarf->setLocation($this->getReference('location-1'));
+        $scarf->setLocation($this->getReference('location-2'));
         $scarf->setPicture('https://image.shutterstock.com/z/stock-photo-small-wooden-house-in-a-warming-scarf-comfortable-live-at-any-seasons-499530313.jpg');
         $scarf->setCategory($this->getReference('category-clothing'));
         $scarf->setStatus(Item::STATUS_LOST);
@@ -35,7 +35,7 @@ class ItemFixtures extends Fixture implements DependentFixtureInterface
         $keychain = new Item();
         $keychain->setTitle('Keychain');
         $keychain->setDescription('Set of 4 plain, silver keys on a keychain, found in a puddle by the side of the road');
-        $keychain->setLocation($this->getReference('location-2'));
+        $keychain->setLocation($this->getReference('location-3'));
         $keychain->setPicture('https://thumbs.dreamstime.com/b/keys-keychain-four-silver-key-chain-isolated-white-33717257.jpg');
         $keychain->setCategory($this->getReference('category-keys'));
         $keychain->setStatus(Item::STATUS_FOUND_RETURNED);
