@@ -30,3 +30,6 @@ services:
 twig:
     globals:
         google_maps_api_key: "%env(GMAPS_API_KEY)%"
+
+vich_uploader:
+  db_driver: orm # or mongodb or propel or phpcr
