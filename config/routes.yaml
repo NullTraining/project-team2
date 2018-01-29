@@ -3,6 +3,22 @@ index:
     defaults: { _controller: 'App\Controller\HomepageController::indexAction' }
     methods: [GET]
 
+report_index:
+  path: /report
+  defaults: { _controller: 'App\Controller\ReportController::indexAction' }
+  methods: [GET]
+
+report_lost:
+  path: /report/lost
+  defaults: { _controller: 'App\Controller\ReportController::lostAction' }
+  methods: [GET]
+
+report_found:
+  path: /report/found
+  defaults: { _controller: 'App\Controller\ReportController::foundAction' }
+  methods: [GET]
+
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 

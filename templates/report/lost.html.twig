@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% use "report/form_report.html.twig" %}
+
+{% block title %}Report lost item!{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <h1>Prijavite izgubljenu stvar</h1>
+    </div>
+
+    {% block form_report %}
+        {{ parent() }}
+    {% endblock %}
+{% endblock %}
