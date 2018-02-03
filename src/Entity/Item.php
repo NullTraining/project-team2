@@ -138,10 +138,19 @@ class Item
     /**
      * @return string
      */
-    public function getPictureName(): ?string
+    public function getPicture(): ?string
     {
         return $this->picture;
     }
+
+    /**
+     * @param string $picture
+     */
+    public function setPicture(?string $picture): void
+    {
+        $this->picture = $picture;
+    }
+
 
     /**
      * @return string
@@ -173,14 +182,6 @@ class Item
     public function setPictureSize(int $pictureSize): void
     {
         $this->pictureSize = $pictureSize;
-    }
-
-    /**
-     * @param string $picture
-     */
-    public function setPicture(?string $picture): void
-    {
-        $this->picture = $picture;
     }
 
     /**
