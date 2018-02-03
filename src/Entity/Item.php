@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ItemRepository")
+ * @Vich\Uploadable
  */
 class Item
 {
@@ -39,9 +41,33 @@ class Item
     private $location;
 
     /**
-     * @ORM\Column(type="text")
+     *  @Vich\UploadableField(mapping="item_image", fileNameProperty="picture", size="pictureSize", originalName="pictureOriginalName")
+     *
+     * @var File $pictureFile
+     */
+    private $pictureFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
      */
     private $picture;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string
+     */
+    private $pictureOriginalName;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $pictureSize;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="items")
@@ -112,15 +138,47 @@ class Item
     /**
      * @return string
      */
-    public function getPicture()
+    public function getPictureName(): ?string
     {
         return $this->picture;
     }
 
     /**
+     * @return string
+     */
+    public function getPictureOriginalName(): string
+    {
+        return $this->pictureOriginalName;
+    }
+
+    /**
+     * @param string $pictureOriginalName
+     */
+    public function setPictureOriginalName(string $pictureOriginalName): void
+    {
+        $this->pictureOriginalName = $pictureOriginalName;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPictureSize(): int
+    {
+        return $this->pictureSize;
+    }
+
+    /**
+     * @param int $pictureSize
+     */
+    public function setPictureSize(int $pictureSize): void
+    {
+        $this->pictureSize = $pictureSize;
+    }
+
+    /**
      * @param string $picture
      */
-    public function setPicture($picture): void
+    public function setPicture(?string $picture): void
     {
         $this->picture = $picture;
     }
@@ -157,4 +215,22 @@ class Item
         $this->status = $status;
     }
 
+    /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the  update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
+     */
+    public function setPictureFile(?File $image = null): void
+    {
+        $this->pictureFile = $image;
+    }
+
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
+    }
 }
