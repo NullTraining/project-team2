@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% use "report/form_report.html.twig" %}
+{% form_theme form _self %}
 
 {% block title %}Report lost item!{% endblock %}
 
@@ -9,13 +9,8 @@
         <h1>Prijavite izgubljenu stvar</h1>
     </div>
 
-    {% block form_report_start %}
-        {{ parent() }}
+    {% block content %}
+        {{ form_row(form) }}
     {% endblock %}
-    {% block form_report_body %}
-        {{ parent() }}
-    {% endblock %}
-    {% block form_report_end %}
-        {{ parent() }}
-    {% endblock %}
+
 {% endblock %}
