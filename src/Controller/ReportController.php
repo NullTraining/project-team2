@@ -10,11 +10,12 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+use \Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * @Embedded\Embedded
  */
-class ReportController
+class ReportController extends Controller
 {
 
     /**
