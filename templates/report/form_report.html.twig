@@ -1,5 +1,11 @@
-{% block form_report %}
+{% block form_report_start %}
+    {{ form_start(form) }}
+{% endblock %}
 
-neka lijepa forma
+{% block form_report_body %}
+    {{ form_widget(form) }}
+{% endblock %}
 
+{% block form_report_end %}
+    {{ form_end(form) }}
 {% endblock %}
