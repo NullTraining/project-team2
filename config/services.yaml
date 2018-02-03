@@ -26,10 +26,23 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-
+    namer.image_file:
+            class: Vich\UploaderBundle\Naming\UniqidNamer
+            public: true
+            tags:
+                - { name: namer }
 twig:
     globals:
         google_maps_api_key: "%env(GMAPS_API_KEY)%"
 
 vich_uploader:
   db_driver: orm # or mongodb or propel or phpcr
+  mappings:
+          item_image:
+              uri_prefix: /images/products
+              upload_destination: '%kernel.project_dir%/public/images/items'
+              namer: namer.image_file
+
+              inject_on_load: false
+              delete_on_update: true
+              delete_on_remove: true
