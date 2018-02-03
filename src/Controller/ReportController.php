@@ -6,9 +6,12 @@ use App\Entity\Item;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use App\Repository\CategoryRepository;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\Request;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use \Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -44,14 +47,31 @@ class ReportController extends Controller
      *
      * @return array
      */
-
-    public function foundAction()
+    public function foundAction(CategoryRepository $repository, Request $request)
     {
 
-        return [];
+        $form = $this->getForm($repository)
+            ->add('status',HiddenType::class,['data'=>Item::STATUS_FOUND])
+            ->getForm();
+
+
+        /**
+         * @var \Symfony\Component\Form\Form $form
+         */
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $item = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($item);
+            $em->flush();
+
+            return $this->redirectToRoute('report_submitted');
+        }
+        return ['form'=>$form->createView()];
+
 
     }
-
     /**
      * @Template
      *
