@@ -35,13 +35,30 @@ class ReportController extends Controller
      *
      * @return array
      */
-
-    public function lostAction()
+    public function lostAction(CategoryRepository $repository, Request $request)
     {
+        $form = $this->getForm($repository)
+            ->add('status',HiddenType::class,['data'=>Item::STATUS_LOST])
+            ->getForm();
 
-        return [];
+        /**
+         * @var \Symfony\Component\Form\Form $form
+         */
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $item = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($item);
+            $em->flush();
+
+            return $this->redirectToRoute('report_submitted');
+
+        }
+        return ['form'=>$form->createView()];
 
     }
+
     /**
      * @Template
      *
