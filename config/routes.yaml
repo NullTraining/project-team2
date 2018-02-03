@@ -19,7 +19,7 @@ report_found:
   methods: [GET, POST]
 
 report_submitted:
-  path: /report/found
+  path: /report/submitted
   defaults: { _controller: 'App\Controller\ReportController::submittedAction' }
   methods: [GET]
 
