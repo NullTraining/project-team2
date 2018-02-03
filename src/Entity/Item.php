@@ -18,6 +18,7 @@ class Item
     const STATUS_FOUND_RETURNED = 2;
     const STATUS_LOST_RETURNED = 3;
 
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -230,8 +231,25 @@ class Item
         $this->pictureFile = $image;
     }
 
+    /**
+     * @return null|File
+     */
     public function getPictureFile(): ?File
     {
         return $this->pictureFile;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatusText(){
+        $ret = [
+            self::STATUS_LOST=>'Izgubljeno',
+            self::STATUS_FOUND=>'Nađeno',
+            self::STATUS_FOUND_RETURNED=>'Nađeno i vraćeno',
+            self::STATUS_LOST_RETURNED=>'Izgubljeno i vraćeno',
+        ];
+
+        return $ret[$this->getStatus()];
     }
 }
