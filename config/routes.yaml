@@ -11,11 +11,16 @@ report_index:
 report_lost:
   path: /report/lost
   defaults: { _controller: 'App\Controller\ReportController::lostAction' }
-  methods: [GET]
+  methods: [GET, POST]
 
 report_found:
   path: /report/found
   defaults: { _controller: 'App\Controller\ReportController::foundAction' }
+  methods: [GET, POST]
+
+report_submitted:
+  path: /report/found
+  defaults: { _controller: 'App\Controller\ReportController::submittedAction' }
   methods: [GET]
 
 
