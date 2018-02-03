@@ -1,5 +1,4 @@
 {% extends 'base.html.twig' %}
-{% use "report/form_report.html.twig" %}
 
 {% block title %}Report lost item!{% endblock %}
 
@@ -9,4 +8,20 @@
         <h1>Vaša prijava je uspješno kreirana</h1>
     </div>
 
+    <div class="row">
+        <h2>{{ item.statusText }}</h2>
+    </div>
+    <div class="row">
+        <dl>
+            <dt>Kategorija</dt>
+            <dd>{{ item.category.title}}</dd>
+            <dt>Naslov</dt>
+            <dt>Naslov</dt>
+            <dd>{{ item.title}}</dd>
+            <dt>Naslov</dt>
+            <dd>{{ item.description}}</dd>
+            <dt>Slika</dt>
+            <dd> <img src="{{ vich_uploader_asset(item, 'pictureFile') }}" alt="{{ item.pictureOriginalName }}" /></dd>
+        </dl>
+    </div>
 {% endblock %}
