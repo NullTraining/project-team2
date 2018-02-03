@@ -42,4 +42,14 @@ class ReportController
         return [];
 
     }
+
+    /**
+     * @Template
+     *
+     * @return array
+     */
+    public function submittedAction()
+    {
+        return [];
+    }
 }
