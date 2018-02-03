@@ -19,9 +19,11 @@ report_found:
   methods: [GET, POST]
 
 report_submitted:
-  path: /report/submitted
+  path: /report/submitted/{id}
   defaults: { _controller: 'App\Controller\ReportController::submittedAction' }
   methods: [GET]
+  requirements:
+          id: '\d+'
 
 
 fos_user:
