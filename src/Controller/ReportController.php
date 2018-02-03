@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Item;
+use App\Repository\ItemRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use App\Repository\CategoryRepository;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -10,7 +11,6 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use \Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -52,7 +52,7 @@ class ReportController extends Controller
             $em->persist($item);
             $em->flush();
 
-            return $this->redirectToRoute('report_submitted');
+            return $this->redirectToRoute('report_submitted',  ['id'=>$item->getId()]);
 
         }
         return ['form'=>$form->createView()];
@@ -83,20 +83,23 @@ class ReportController extends Controller
             $em->persist($item);
             $em->flush();
 
-            return $this->redirectToRoute('report_submitted');
+            return $this->redirectToRoute('report_submitted', ['id'=>$item->getId()]);
         }
         return ['form'=>$form->createView()];
 
 
     }
+
     /**
      * @Template
-     *
+     * @param int $id
+     * @param ItemRepository $repository
      * @return array
      */
-    public function submittedAction()
+    public function submittedAction(int $id, ItemRepository $repository)
     {
-        return [];
+        $item = $repository->find($id);
+        return ['item'=>$item];
     }
 
     /**
