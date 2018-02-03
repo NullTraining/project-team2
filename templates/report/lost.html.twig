@@ -9,7 +9,13 @@
         <h1>Prijavite izgubljenu stvar</h1>
     </div>
 
-    {% block form_report %}
+    {% block form_report_start %}
+        {{ parent() }}
+    {% endblock %}
+    {% block form_report_body %}
+        {{ parent() }}
+    {% endblock %}
+    {% block form_report_end %}
         {{ parent() }}
     {% endblock %}
 {% endblock %}
