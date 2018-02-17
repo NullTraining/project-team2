@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Entity\Location;
@@ -11,6 +13,7 @@ class HomepageController
 {
     /**
      * @Template
+     *
      * @param LocationRepository $locationRepository
      *
      * @return array
@@ -24,7 +27,7 @@ class HomepageController
         /** @var Location $location */
         foreach ($locations as $location) {
             /** @var PersistentCollection $points */
-            $points = $location->getPoints();
+            $points                        = $location->getPoints();
             $pointSets[$location->getId()] = $points->toArray();
         }
 

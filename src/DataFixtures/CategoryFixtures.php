@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace App\DataFixtures;
 
 use App\Entity\Category;
@@ -26,10 +29,6 @@ class CategoryFixtures extends Fixture
         $manager->persist($clothing);
         $manager->persist($keys);
 
-
-
-
         $manager->flush();
     }
-
 }

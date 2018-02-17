@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace App\DataFixtures;
 
 use App\Entity\Item;
@@ -10,7 +13,6 @@ class ItemFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-
         $wallet = new Item();
         $wallet->setTitle('Black wallet');
         $wallet->setDescription('Medium-size, black leather wallet');
@@ -20,7 +22,6 @@ class ItemFixtures extends Fixture implements DependentFixtureInterface
         $wallet->setStatus(Item::STATUS_FOUND);
 
         $manager->persist($wallet);
-
 
         $scarf = new Item();
         $scarf->setTitle("Kid's scarf");
@@ -51,9 +52,9 @@ class ItemFixtures extends Fixture implements DependentFixtureInterface
 
     public function getDependencies()
     {
-        return array(
+        return [
             CategoryFixtures::class,
-            PointAndLocationFixtures::class
-        );
+            PointAndLocationFixtures::class,
+        ];
     }
 }

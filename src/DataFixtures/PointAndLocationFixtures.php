@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace App\DataFixtures;
 
 use App\Entity\Location;
@@ -19,7 +22,7 @@ class PointAndLocationFixtures extends Fixture
         $point2->setLongitude(15.970450);
 
         $point3 = new Point();
-        $point3->setLatitude( 45.813008);
+        $point3->setLatitude(45.813008);
         $point3->setLongitude(15.944256);
 
         $point4 = new Point();
@@ -50,8 +53,6 @@ class PointAndLocationFixtures extends Fixture
         $location3->setCity('Zagreb');
         $location3->setPoints([$point4]);
         $point4->setLocation($location3);
-
-
 
         $manager->persist($point1);
         $manager->persist($point2);

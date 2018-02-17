@@ -45,7 +45,6 @@ class Category
         return $this->id;
     }
 
-
     /**
      * @return string
      */

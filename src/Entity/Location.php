@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -53,7 +55,7 @@ class Location
     public function __construct()
     {
         $this->points = new ArrayCollection();
-        $this->items = new ArrayCollection();
+        $this->items  = new ArrayCollection();
     }
 
     /**

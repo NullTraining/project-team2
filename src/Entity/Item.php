@@ -12,8 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Item
 {
     const STATUS_FOUND = 0;
+
     const STATUS_LOST = 1;
+
     const STATUS_FOUND_RETURNED = 2;
+
     const STATUS_LOST_RETURNED = 3;
 
     /**
@@ -156,5 +159,4 @@ class Item
     {
         $this->status = $status;
     }
-
 }
